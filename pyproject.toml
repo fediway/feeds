@@ -1,7 +1,7 @@
 [project]
-name = "feeds"
+name = "fediway-feeds"
 version = "0.1.0"
-description = "Generic feed recommendation and ranking engine"
+description = "Recommendation and ranking engine"
 license = { text = "Apache-2.0" }
 requires-python = ">=3.10"
 keywords = ["recommendations", "algorithmic-feed", "feed-engine", "ranking"]

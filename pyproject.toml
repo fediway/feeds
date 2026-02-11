@@ -1,0 +1,50 @@
+[project]
+name = "feeds"
+version = "0.1.0"
+description = "Generic feed recommendation and ranking engine"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.10"
+keywords = ["recommendations", "algorithmic-feed", "feed-engine", "ranking"]
+
+dependencies = [
+    "loguru>=0.7",
+    "numpy>=1.26",
+    "pandas>=2.0",
+    "redis>=4.5",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=9.0",
+    "pytest-asyncio>=1.3",
+    "pytest-cov>=7.0",
+    "ruff>=0.9",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["feeds"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["feeds"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
